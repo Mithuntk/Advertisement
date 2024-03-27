@@ -1,14 +1,25 @@
-import React from 'react';
-import Profile from "./pages/ex"
-import Home from './pages/Home';
+import React, { useState } from 'react';
+import Background from '../src/components/Background/Background';
+import Navbar from './components/Navbar/Navbar';
+import Hero from './components/Hero/Hero';
 
-function App() {
+const App = () => {
+  let heroData = [
+    { text1: "Dive into", text2: "What you love" },
+    { text1: "Indulge", text2: "your passion" },
+    { text1: "Give in to", text2: "your passions" },
+  ];
+  const [heroCount, setHeroCount] = useState(0);
+  const [playStatus, setPlayStatus] = useState(false);
+
   return (
-    <div className="App">
-      <Profile/>
-      <Home/>
+    <div>
+      <Background playStatus={playStatus} heroCount={heroCount} />
+      <Navbar />
+      <Hero setPlayStatus={setPlayStatus} heroData={heroData[heroCount]} heroCount={heroCount}
+      setHeroCount={setHeroCount} playStatus={playStatus}/>
     </div>
   );
-}
+};
 
 export default App;
