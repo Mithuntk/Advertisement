@@ -10,4 +10,11 @@
     position: fixed;
     object-fit: cover;
     z-index: -1;
+    animation: fadeIn 500ms ease-in-out;
+    
 }
+
+  @keyframes fadeIn {
+    from { opacity:0; }
+    to { opacity:1; }
+    }
